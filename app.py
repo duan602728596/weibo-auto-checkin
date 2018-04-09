@@ -12,8 +12,7 @@ class WeiboAutoCheckin:
     self.loginUrl = 'https://passport.weibo.cn/sso/login'                                                        # 登录地址【POST】
     self.checkinUrl = 'https://weibo.com/p/aj/general/button?api=http://i.huati.weibo.com/aj/super/checkin&id='  # 签到地址【GET】
     self.cookieJar = http.cookiejar.CookieJar()                                                                  # cookieJar
-    self.opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(self.cookieJar))                # opener
-  
+
   # 登录账号，获取cookie
   def login(self):
     data = urllib.parse.urlencode({
@@ -24,8 +23,9 @@ class WeiboAutoCheckin:
       'Referer': 'https://passport.weibo.cn/signin/login?entry=mweibo&r=http%3A%2F%2Fm.weibo.cn',
     }
     req = urllib.request.Request(self.loginUrl, data=data.encode('utf-8'), headers=headers)
-    res = self.opener.open(req)
-  
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(self.cookieJar))
+    opener.open(req)
+
   # 循环签到
   def checkIn(self):
     # 获取cookie

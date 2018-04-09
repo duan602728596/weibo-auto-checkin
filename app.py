@@ -45,8 +45,8 @@ class WeiboAutoCheckin:
       # 已签到
       if result['code'] == 382004:
         print('#' + item2[0] + '#   ' + result['msg'])
-        
-    
+
+
 # 初始化需要配置用户名和密码
 wb = WeiboAutoCheckin('用户名', '密码')
 wb.login()

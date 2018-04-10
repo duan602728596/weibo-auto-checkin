@@ -1,0 +1,25 @@
+{
+  "name": "weibo-auto-checkin",
+  "description": "微博超话自动签到脚本",
+  "main": "lib/index.js",
+  "author": {
+    "name": "段昊辰",
+    "email": "duanhaochen@126.com",
+    "url": "https://github.com/duan602728596"
+  },
+  "scripts": {
+    "start": "node lib/index",
+    "eslint": "./node_modules/.bin/eslint lib"
+  },
+  "dependencies": {
+    "request": "^2.85.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.19.1",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": {
+    "run": ["eslint"]
+  }
+}
